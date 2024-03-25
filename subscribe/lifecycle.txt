@@ -22,3 +22,7 @@ println "configuration phase"
 println "gradle id: ${gradle.hashCode()}"
 println "root: ${rootProject.hashCode()}, ${project.hashCode()}, ${gradle.rootProject.hashCode()}"
 //Так как проект одномодульный то все они равны
+
+
+//Project -> [Task1, Task2]
+//Task -> [Action1, Action2] -> action.execute (execution phase)
