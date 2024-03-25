@@ -9,3 +9,16 @@
 1,2 - Фаза инициализации, после него известна вся структура проекта
 3 - Фаза конфигурации
 4 - Execution phase - Пробегаемся по всему ацикличному дереву (в объекте Gradle) и выполняем задачи.
+
+settings.gradle ====================================================================================
+//println("init phase, settings file: ${tasks.toString()}") недоступно на данном этапе
+//Все это передастся как одна функция, делегирует все вызовы объекту типа Settings
+println("init phase, settings file: ${toString()}")
+println("init phase, gradle hash: ${gradle.hashCode()}")
+println("init phase, settings dir: ${settings.settingsDir}")
+
+build.gradle =======================================================================================
+println "configuration phase"
+println "gradle id: ${gradle.hashCode()}"
+println "root: ${rootProject.hashCode()}, ${project.hashCode()}, ${gradle.rootProject.hashCode()}"
+//Так как проект одномодульный то все они равны
