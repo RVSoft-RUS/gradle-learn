@@ -4,3 +4,30 @@
  * This is a general purpose Gradle build.
  * To learn more about Gradle by exploring our Samples at https://docs.gradle.org/8.7/samples
  */
+
+// task = new DefaultTask Вызов: gradle hello
+//4 - передаем мапу
+def map = [description: "Hello task", group: "dmdev"]
+//task(map, "hello") {
+//    println "configuration phase. Task hello"
+//    println "task: $description, group: $group, actions: ${actions.size()}"
+//}
+
+//3 - синтаксический сахар
+task hello(description: "Hello task", group: "dmdev", type: DefaultTask) {
+    println "configuration phase. Task hello"
+    println "task: $description, group: $group, actions: ${actions.size()}"
+}
+
+//tasks.findByName("hello").
+//1
+//hello.description = "Hello task"
+//hello.group = "dmdev"
+
+//2
+//hello.configure Closure
+//hello {
+//    println "configuration phase. Task hello"
+//    description = "Hello task"
+//    group = "dmdev"
+//}
