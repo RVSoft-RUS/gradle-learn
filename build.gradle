@@ -45,3 +45,47 @@ task hello(description: "Hello task", group: "dmdev", type: DefaultTask) {
 //    description = "Hello task"
 //    group = "dmdev"
 //}
+
+task first {
+    doLast {
+        println "Task 1"
+    }
+}
+
+task second {
+    doLast {
+        println "Task 2"
+    }
+}
+
+task third {
+    doLast {
+        println "Task 3"
+    }
+}
+
+task fourth {
+    doLast {
+        println "Task 4"
+    }
+}
+
+// 2 <--- 4
+
+//fourth.dependsOn second
+//second.dependsOn first
+//second.finalizedBy third - после нее должна запуститься 3я
+fourth.dependsOn first
+fourth.dependsOn second
+fourth.dependsOn third
+
+first.mustRunAfter second // 1 после 2 должна идти
+//second.shouldRunAfter first
+
+//Сюда попадут каждый раз разные задачи, в зависимости от запущенной (+ все от которых она зависит)
+gradle.taskGraph.whenReady { TaskExecutionGraph graph ->
+    println "---- Graph:"
+    graph.allTasks.each {
+        println "${it.name}"
+    }
+}
