@@ -4,6 +4,24 @@
  * This is a general purpose Gradle build.
  * To learn more about Gradle by exploring our Samples at https://docs.gradle.org/8.7/samples
  */
+import java.time.LocalDate
+
+ext { //свойства - обычная map
+    javaVersion = 16
+    currentDate = LocalDate.now()
+}
+
+println ext.javaVersion
+println project.ext.javaVersion
+println javaVersion
+println project.javaVersion
+//println project."projectParam1"
+println "---- All properties:"
+println project.properties
+println "---- System: "
+println System.getProperty("sys.example")
+
+//Так же d gradle.properties
 
 // task = new DefaultTask Вызов: gradle hello
 //4 - передаем мапу
