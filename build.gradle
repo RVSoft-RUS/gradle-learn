@@ -11,6 +11,18 @@ ext { //свойства - обычная map
     currentDate = LocalDate.now()
 }
 
+repositories {
+//    ~/.gradle/caches --offline
+//    ~/.m2/repository
+//    mavenLocal()
+    maven {
+        name "nexus dmdev"
+        uri "https://nexus.dmdev/repository"
+    }
+    mavenCentral()
+//    flatDir {}
+}
+
 println ext.javaVersion
 println project.ext.javaVersion
 println javaVersion
