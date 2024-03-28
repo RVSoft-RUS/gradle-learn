@@ -23,6 +23,12 @@ repositories {
 //    flatDir {}
 }
 
+dependencies { //все три строки - одно и тоже (синт. сахар)
+//    add('implementation', [group: "org.springframework", name: 'spring-webmvc', version: '5.3.9'])
+//    add('implementation', "org.springframework:spring-webmvc:5.3.9")
+    implementation "org.springframework:spring-webmvc:5.3.9"
+}
+
 println ext.javaVersion
 println project.ext.javaVersion
 println javaVersion
