@@ -28,6 +28,7 @@ dependencies { //все три строки - одно и тоже (синт. с
 //    add('implementation', "org.springframework:spring-webmvc:5.3.9")
     implementation "org.springframework:spring-webmvc:5.3.9"
 }
+// gradle-7.1.1(либо home/.gradle)\caches\modules-2\files-2.1 - здесь хранятся зависимости
 
 println ext.javaVersion
 println project.ext.javaVersion
