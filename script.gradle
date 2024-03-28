@@ -1,0 +1,7 @@
+task FuckAll {
+    description = 'Fuflo'
+    group= 'fuck'
+    doLast {
+        println "Task 1"
+    }
+}
