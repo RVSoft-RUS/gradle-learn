@@ -179,3 +179,14 @@ class CustomPlugin implements Plugin<Project> {
         }
     }
 }
+
+configurations.runtimeClasspath.files.each { println it }//напечатать все jar зависимости
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.dmdev.HelloWorld' //Добавить в манифест Main-Class
+    }
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+
+    from (configurations.runtimeClasspath.files.collect {zipTree(it)} ) //Включить в jar  все зависимости
+}
